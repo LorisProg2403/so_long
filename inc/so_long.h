@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:29:43 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/27 18:19:19 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:12:44 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "../mlx/mlx.h"
 # include "../libft/include/libft.h"
 
-void	check_args(int ac, char **av, char ***map);
-void	error_and_free(char *msg,char **str);
+char	**check_args(int ac, char **av);
+void	error_and_free(char *msg, char **str);
 
 #endif

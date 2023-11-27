@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:25:29 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/27 18:21:17 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/11/27 21:41:45 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(int ac, char **av)
 {
 	char	**map;
-	
-	check_args(ac, av, &map);
+
+	map = check_args(ac, av);
+	ft_printf("Everything went well\n");
+	ft_free_ptrstr(map);
 }

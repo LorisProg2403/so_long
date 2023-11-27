@@ -48,6 +48,12 @@ Check if only the allowed characters are here.
 
 If so then check if the len is the same everywhere and that the lan is bigger than the number of lines (if it's a rectangle).
 
+Check if there is at least one exit, at least one collectable, one player.
+
+Check if there is wall all around the map.
+
+Check if the map is winnable.
+
 ## Load Map
 
 When all the checks are good, we can draw the map.
