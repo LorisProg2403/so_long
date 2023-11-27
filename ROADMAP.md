@@ -29,3 +29,4 @@ For example :
 Which would look like this :
 
 <img src="images/examplemap.png" width="400"/><br>
+(image source : https://github.com/tblaase/so_long/blob/master/images/example.png)
