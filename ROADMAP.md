@@ -17,6 +17,7 @@ A valid map is structured as followed :
 	- C
 	- 0
 	- 1
+
 For example :
 
 	1111111111111
@@ -24,5 +25,7 @@ For example :
 	1000011111001
 	1P0011E000011
 	1111111111111
+
 Which would look like this :
+
 <img src="images/examplemap.png" width="400"/><br>
