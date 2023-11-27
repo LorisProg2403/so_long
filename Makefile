@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+         #
+#    By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 13:17:03 by lgaume            #+#    #+#              #
-#    Updated: 2023/11/27 15:15:53 by lgaume           ###   ########.fr        #
+#    Updated: 2023/11/27 18:21:41 by lgaume           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,13 @@ INC = inc/
 SRC_PATH = src/
 OBJ_PATH = obj/
 
-SRC = so_long check
+SRC = so_long check errors
 SRCS 	= $(addprefix $(SRC_PATH), $(addsuffix .c, $(SRC)))
 OBJ 	= $(patsubst $(SRC_PATH)%.c,$(OBJ_PATH)%.o,$(SRCS))
 
 all:					$(NAME)
 
-$(LIBFT) :	
+$(LIBFT) :
 						@make -C ./libft
 
 $(NAME): 				$(OBJ) $(LIBFT)
@@ -38,8 +38,8 @@ $(OBJ_PATH)%.o: 		$(SRC_PATH)%.c
 						@mkdir -p $(@D)
 						@$(CC) $(FLAGS) -I $(INC) -c $< -o $@
 						@$(CC) $(FLAGS) -I mlx -c $< -o $@
-			
-clean:		
+
+clean:
 						@$(RM) $(OBJ)
 						@make clean -C ./libft
 

@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 13:25:29 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/27 18:21:17 by lgaume           ###   ########.fr       */
+/*   Created: 2023/11/27 18:17:04 by lgaume            #+#    #+#             */
+/*   Updated: 2023/11/27 18:18:13 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int	main(int ac, char **av)
+void	error_and_free(char *msg,char **str)
 {
-	char	**map;
-	
-	check_args(ac, av, &map);
+	ft_free_ptrstr(str);
+	handle_errors(msg);
 }
