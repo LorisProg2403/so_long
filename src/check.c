@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 15:05:09 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/27 22:00:31 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:42:01 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,6 @@ char	**check_args(int ac, char **av)
 	free(format);
 	map = get_map(fd);
 	check_map(map);
-	check_valid_map(map);
+	valid_map(map);
 	return (map);
 }

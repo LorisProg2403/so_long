@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
+/*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:29:43 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/27 19:12:44 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/11/28 13:40:53 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@
 
 char	**check_args(int ac, char **av);
 void	error_and_free(char *msg, char **str);
+void	valid_map(char **map);
 
 #endif
