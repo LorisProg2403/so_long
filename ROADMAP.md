@@ -76,3 +76,5 @@ Note that the player, the collectable, the exit and the traps must be on top of 
 ## Example
 
 Git : [So_long: Zelda](https://github.com/andersonhsporto/ft-so_long/blob/main/README.md)
+
+TODO : Comprendre les masks utiliser dans init_hook() --> [so_long.c](https://github.com/andersonhsporto/ft-so_long/blob/main/source/so_long.c)
