@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   img_path.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/27 13:29:43 by lgaume            #+#    #+#             */
-/*   Updated: 2023/11/28 19:18:24 by lgaume           ###   ########.fr       */
+/*   Created: 2023/11/28 18:11:47 by lgaume            #+#    #+#             */
+/*   Updated: 2023/11/28 18:40:35 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef IMG_PATH_H
+# define IMG_PATH_H
 
-# include <stdio.h>
-# include <stdbool.h>
-# include <fcntl.h>
-# include "../mlx/mlx.h"
-# include "../libft/include/libft.h"
-# include "struct.h"
-# include "img_path.h"
+# define APPLE_PATH		"./img/apple.xpm"
+# define WALL_PATH		"./img/wall.xpm"
+# define GRASS_PATH		"./img/grass.xpm"
+# define TNT_PATH		"./img/tnt.xpm"
 
-// endgame.c
-void	endgame(char *msg, t_game *game, enum e_state i);
-void	free_map(t_game *game);
-void	destroy_image(t_game *game);
+# define CHAR_D_PATH	"./img/link_sprites/down_1_.xpm"
+# define CHAR_U_PATH	"./img/link_sprites/up_1_.xpm"
+# define CHAR_L_PATH	"./img/link_sprites/left_1_.xpm"
+# define CHAR_R_PATH	"./img/link_sprites/right_1_.xpm"
 
 #endif

@@ -52,7 +52,11 @@ Check if there is at least one exit, at least one collectable, one player.
 
 Check if there is wall all around the map.
 
-Check if the map is winnable.
+Check if the map is winnable. (Pathfinding algo)
+
+## Pathfinding algorithm
+
+
 
 ## Load Map
 
