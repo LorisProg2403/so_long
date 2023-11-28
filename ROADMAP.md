@@ -71,3 +71,8 @@ When all the checks are good, we can draw the map.
 Each of them will have the size of 50 pixel x 50 pixel
 
 Note that the player, the collectable, the exit and the traps must be on top of grass.
+
+
+## Example
+
+Git : [So_long: Zelda](https://github.com/andersonhsporto/ft-so_long/blob/main/README.md)
