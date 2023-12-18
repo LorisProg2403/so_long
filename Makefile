@@ -21,7 +21,7 @@ INC = inc/
 SRC_PATH = src/
 OBJ_PATH = obj/
 
-SRC = so_long endgame
+SRC = so_long pathfinding utils
 SRCS 	= $(addprefix $(SRC_PATH), $(addsuffix .c, $(SRC)))
 OBJ 	= $(patsubst $(SRC_PATH)%.c,$(OBJ_PATH)%.o,$(SRCS))
 

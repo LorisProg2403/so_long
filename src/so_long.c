@@ -12,7 +12,7 @@
 
 #include "../inc/so_long.h"
 
-static bool	is_ber(const char *av)
+/*static bool	is_ber(const char *av)
 {
 	char	*s;
 
@@ -20,19 +20,11 @@ static bool	is_ber(const char *av)
 	if (s)
 		return (!ft_strcmp(s, ".ber"));
 	return (false);
-}
+}*/
 
 int	main(int ac, char **av)
 {
-	t_game	game;
-
-	(void)av;
-	if (ac == 2 && !is_ber(av[1]))
-		endgame("Wrong format for the map!", &game, error);
-	else if (ac > 2)
-		endgame("Can't have more than one files!", &game, error);
-	else if (ac == 2 && is_ber(av[1]))
-		init_game(&game, av[1]);
-	endgame("Please give a file!", &game, error);
+    (void)ac;
+    (void)av;
 	return (0);
 }
