@@ -70,6 +70,9 @@ typedef struct s_map
 //Functions
 t_res 	check_map(t_map map);
 
+t_point new_pt(int x, int y, char value);
+void	create_tab_pt(t_map *map, int y, int x);
+
 t_res	is_winnable(t_map map);
 
 t_res	make_res(bool state, int code, char *msg, void *data);
