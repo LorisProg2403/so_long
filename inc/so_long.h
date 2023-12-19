@@ -75,5 +75,5 @@ t_res	is_winnable(t_map map);
 t_res	make_res(bool state, int code, char *msg, void *data);
 
 void	set_zero(int count, ...);
-void	exit_errors(char *msg);
+void	exit_errors(t_res res, t_map map);
 #endif

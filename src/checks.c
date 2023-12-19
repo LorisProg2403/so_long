@@ -57,6 +57,8 @@ static bool	map_is_rectangle(char **map)
 			return (false);
 		i++;
 	}
+	if (i == len)
+		return (false);
 	return (true);
 }
 
@@ -70,15 +72,13 @@ static bool	surrounded_by_wall(char **map)
 	h = 0;
 	while (map[h])
 		h++;
-	h--;
-	w--;
 	i = 0;
-	while (map[0][i] == WALL && map[h][i] == WALL)
+	while (map[0][i] == WALL && map[h - 1][i] == WALL)
 		i++;
 	if (i != w)
 		return (false);
-	i = 0;
-	while (map[i][0] == WALL && map[i][w] == WALL)
+	i = 0;;
+	while (map[i] && map[i][0] == WALL && map[i][w - 1] == WALL)
 		i++;
 	if (i != h)
 		return (false);

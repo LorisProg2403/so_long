@@ -12,16 +12,6 @@
 
 #include "../inc/so_long.h"
 
-static bool	is_ber(const char *av)
-{
-	char	*s;
-
-	s = ft_strrchr(av, '.');
-	if (s)
-		return (!ft_strcmp(s, ".ber"));
-	return (false);
-}
-
 static t_map init_map(char *s)
 {
 	t_map 	out;
@@ -46,6 +36,7 @@ static t_map init_map(char *s)
 			break;
 		//printf("%s\n", ft_strtrim(line,"\n"));
 		out.map[i] = ft_strtrim(line,"\n");
+		free(line);
 		i++;
 	}
 	(void)i;
@@ -56,15 +47,16 @@ int	main(int ac, char **av)
 {
 	t_map 	map;
 	t_res	res;
+
     if (ac != 2)
-		exit_errors("There should be only one argument!\n");
-	if (!is_ber(av[1]))
-		exit_errors("Map should be a .ber file!\n");
+	{
+		ft_printf("Error\nMore than one argument!\n");
+		exit(1);
+	}
 	map = init_map(av[1]);
 	res = check_map(map);
-	(void)res;
-	/*if (res.state)
-		exit_errors(res.msg);*/
+	if (res.state)
+		exit_errors(res, map);
 	printf("map => ok\n");
 	int i = 0;
 	free(map.path);

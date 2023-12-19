@@ -12,10 +12,27 @@
 
 #include "../inc/so_long.h"
 
-void	exit_errors(char *msg)
+static void	free_map_map(t_map map)
+{
+	int i;
+
+	i = 0;
+	while (map.map[i])
+	{
+		free(map.map[i]);
+		i++;
+	}
+	free(map.map);
+}
+
+void	exit_errors(t_res res, t_map map)
 {
 	ft_printf("Error\n");
-	if (msg)
-		ft_printf(msg);
+	ft_printf(res.msg);
+	if (res.code == MAP_ERROR)
+	{
+		free(map.path);
+		free_map_map(map);
+	}
 	exit (1);
 }
