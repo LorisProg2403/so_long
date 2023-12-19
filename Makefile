@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+         #
+#    By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 13:17:03 by lgaume            #+#    #+#              #
-#    Updated: 2023/11/28 19:10:19 by lgaume           ###   ########.fr        #
+#    Updated: 2023/12/19 14:07:37 by lgaume           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC = inc/
 SRC_PATH = src/
 OBJ_PATH = obj/
 
-SRC = so_long pathfinding utils checks handling_errors points
+SRC = so_long pathfinding utils map checks handling_errors points generate_window
 SRCS 	= $(addprefix $(SRC_PATH), $(addsuffix .c, $(SRC)))
 OBJ 	= $(patsubst $(SRC_PATH)%.c,$(OBJ_PATH)%.o,$(SRCS))
 
@@ -45,8 +45,11 @@ clean:
 
 fclean:					clean
 						@$(RM) $(NAME)
-						@$(RM) $(LIBFT)
+						@make fclean -C ./libft
 
 re:						fclean all
 
-.PHONY:					all clean fclean re
+s:						
+						@make -s
+
+.PHONY:					all clean fclean re s
