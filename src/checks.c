@@ -35,7 +35,7 @@ static bool	has_everything(t_map map)
 		}
 		p.x++;
 	}
-	if (c.items > 1 && c.exit == 1 && c.spawn == 1)
+	if (c.items >= 1 && c.exit == 1 && c.spawn == 1)
 		return (true);
 	return (false);
 }
@@ -70,6 +70,8 @@ static bool	surrounded_by_wall(char **map)
 	h = 0;
 	while (map[h])
 		h++;
+	h--;
+	w--;
 	i = 0;
 	while (map[0][i] == WALL && map[h][i] == WALL)
 		i++;
@@ -87,9 +89,12 @@ t_res	check_map(t_map map)
 {
 	if (!has_everything(map))
 		return (make_res(1, 3, "Unplayble map!\n", NULL));
+	printf("everything => ok\n");
 	if (!map_is_rectangle(map.map))
 		return (make_res(1, 3, "Map should be a rectanlge!\n", NULL));
+	printf("rectangle => ok\n");
 	if (!surrounded_by_wall(map.map))
 		return (make_res(1, 3, "Map should be surrounded by wall!\n", NULL));
+	printf("surrounded => ok\n");
 	return (make_res(0, 0, NULL, NULL));
 }
