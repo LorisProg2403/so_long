@@ -19,11 +19,11 @@
 # include "../mlx/mlx.h"
 
 // Images path
-# define WALL_IMG_PATH "./img/wall.xpm"
-# define PATH_IMG_PATH "./img/grass.xpm"
-# define EXIT_IMG_PATH "./img/exit.xpm"
-# define ITEM_IMG_PATH "./img/apple.xpm"
-# define PLAYER_IMG_PATH "./img/link_sprites/up_1_1.xpm"
+# define WALL_IMG_PATH "./img/crash/wall.xpm"
+# define PATH_IMG_PATH "./img/crash/grass.xpm"
+# define EXIT_IMG_PATH "./img/crash/exit.xpm"
+# define ITEM_IMG_PATH "./img/crash/apple.xpm"
+# define PLAYER_IMG_PATH "./img/crash/player.xpm"
 
 // Error code
 # define MALLOC_ERROR 1
@@ -31,7 +31,7 @@
 # define MAP_ERROR 3
 
 // Data
-# define IMG_SIZE 32
+# define IMG_SIZE 50
 
 // MAP CHARACTERS
 # define WALL '1'

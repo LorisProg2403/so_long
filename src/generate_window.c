@@ -12,13 +12,36 @@
 
 #include "../inc/so_long.h"
 
+void	get_corr(t_point *c, t_point p, int width, int height)
+{
+	if (height == IMG_SIZE / 2)
+	{
+		(*c).x = p.x * IMG_SIZE + height / 2;
+		(*c).y = p.y * IMG_SIZE + width / 2;
+	}
+	else if (width == 29)
+	{
+		(*c).x = p.x * IMG_SIZE + 11;
+		(*c).y = p.y * IMG_SIZE + 3;
+	}
+	else if (height == 45)
+	{
+		(*c).x = p.x * IMG_SIZE + 3;
+		(*c).y = p.y * IMG_SIZE + 3;
+	}
+	else
+	{
+		(*c).x = p.x * IMG_SIZE;
+		(*c).y = p.y * IMG_SIZE;
+	}
+}
+
 void	*create_img(t_vars *mlx, int x, int y, char *path)
 {
 	int		img_width;
 	int		img_height;
 	void	*img;
-	int		corr_x;
-	int		corr_y;
+	t_point	corr;
 
 	img = mlx_xpm_file_to_image(mlx->mlx, path, &img_width, &img_height);
 	if (!img)
@@ -26,18 +49,8 @@ void	*create_img(t_vars *mlx, int x, int y, char *path)
 		ft_printf("%s not found", path);
 		return (NULL);
 	}
-	printf("%d\n", img_height);
-	if (img_height != IMG_SIZE)
-	{
-		corr_x = x * IMG_SIZE + img_height / 2;
-		corr_y = y * IMG_SIZE + img_width / 2;
-	}
-	else
-	{
-		corr_x = x * IMG_SIZE;
-		corr_y = y * IMG_SIZE;
-	}
-	mlx_put_image_to_window(mlx->mlx, mlx->win, img, corr_x, corr_y);
+	get_corr(&corr, new_pt(x, y, '\0'), img_width, img_height);
+	mlx_put_image_to_window(mlx->mlx, mlx->win, img, corr.x, corr.y);
 	return (img);
 }
 
@@ -60,10 +73,10 @@ char	*get_correct_map_image(t_map *map, int x, int y)
 
 void	create_correct_image(t_vars *mlx, int x, int y, t_map *map)
 {
-	t_point	*ptn;
+	t_point	*pts;
 
-	ptn = &(*map).points[y][x];
-	if ((*ptn).value == SPAWN || (*ptn).value == ITEM)
+	pts = &(*map).points[y][x];
+	if ((*pts).value == SPAWN || (*pts).value == ITEM || (*pts).value == EXIT)
 	{
 		create_img(mlx, x, y, PATH_IMG_PATH);
 		create_img(mlx, x, y, get_correct_map_image(map, x, y));
@@ -82,10 +95,10 @@ void	generate_map(t_map *map)
 
 	mlx_ini = mlx_init();
 	mlx_win = mlx_new_window(mlx_ini, IMG_SIZE * ((*map).width + 1),
-			IMG_SIZE * ((*map).height + 1), "Game");
+			IMG_SIZE * ((*map).height + 1), "SO_LONG");
 	mlx.mlx = mlx_ini;
 	mlx.win = mlx_win;
-	set_zero(2, &i, &j);
+	i = 0;
 	while (i <= (*map).height)
 	{
 		j = 0;
