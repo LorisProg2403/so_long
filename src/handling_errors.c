@@ -6,13 +6,13 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:58:03 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 13:06:46 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/20 12:40:27 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-static void	free_map_map(t_map map)
+/*static void	free_map_map(t_map map)
 {
 	int	i;
 
@@ -36,13 +36,14 @@ static void	free_points(t_map map)
 		i++;
 	}
 	free(map.points);
-}
+}*/
 
 void	exit_errors(t_res res, t_map map)
 {
 	ft_printf("Error\n");
 	ft_printf(res.msg);
-	if (res.code == MAP_ERROR)
+	(void)map;
+	/*if (res.code == MAP_ERROR)
 	{
 		free(map.path);
 		free_map_map(map);
@@ -52,6 +53,6 @@ void	exit_errors(t_res res, t_map map)
 		free(map.path);
 		free_map_map(map);
 		free_points(map);
-	}
+	}*/
 	exit (1);
 }

@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 13:25:29 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 14:08:37 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/20 13:38:30 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 		exit_errors(res, map);
 	printf("winnable => ok\n");
 	print_points(map);
-	generate_map(&map);
-	free_all(map);
-	return (0);
+	//generate_map(&map);
+	//free_all(map);
+	exit (0);
 }

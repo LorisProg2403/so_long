@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:01:04 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 14:35:06 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/20 12:24:45 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include "../mlx/mlx.h"
+
+// Keys
+# define KEY_W 13
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_Q 12
+# define KEY_ESC 53
 
 // Images path
 # define WALL_IMG_PATH "./img/crash/wall.xpm"
@@ -40,6 +48,7 @@
 # define EXIT 'E'
 # define SPAWN 'P'
 
+
 typedef struct s_vars
 {
 	void	*mlx;
@@ -61,12 +70,20 @@ typedef struct s_res
 	char	*msg;
 }	t_res;
 
+typedef struct s_img
+{
+	void	*img;
+	t_vars	mlx;
+}	t_img;
+
 typedef struct s_point
 {
 	char	value;
 	int		x;
 	int		y;
 	bool	visited;
+	t_img	img;
+	bool	has_image;
 }	t_point;
 
 typedef struct s_map
@@ -76,11 +93,13 @@ typedef struct s_map
 	int		height;
 	int		width;
 	int		items;
+	int		moves;
 	bool	exit_reached;
 	bool	items_reached;
 	t_point	spawn;
 	t_point	exit;
 	t_point	**points;
+	
 }	t_map;
 
 //Functions

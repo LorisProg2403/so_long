@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:17:48 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 12:46:42 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/20 12:15:01 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ t_res	get_map(char *s, t_map *map)
 		return (res);
 	map->items_reached = false;
 	map->exit_reached = false;
+	map->moves = 0;
 	res = is_winnable(*map);
 	return (res);
 }
