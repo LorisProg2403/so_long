@@ -14,19 +14,19 @@
 
 void	set_zero(int count, ...)
 {
-    va_list    args;
-    int        *curr;
-    int        i;
+	va_list	args;
+	int		*curr;
+	int		i;
 
-    i = 0;
-    va_start(args, count);
-    while (i < count)
-    {
-        curr = va_arg(args, int*);
-        *curr = 0;
-        i++;
-    }
-    va_end(args);
+	i = 0;
+	va_start(args, count);
+	while (i < count)
+	{
+		curr = va_arg(args, int *);
+		*curr = 0;
+		i++;
+	}
+	va_end(args);
 }
 
 t_res	make_res(bool state, int code, char *msg, void *data)

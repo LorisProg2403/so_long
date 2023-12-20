@@ -14,7 +14,7 @@
 
 static void	free_map_map(t_map map)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (map.map[i])
@@ -42,7 +42,6 @@ void	exit_errors(t_res res, t_map map)
 {
 	ft_printf("Error\n");
 	ft_printf(res.msg);
-	if (!map.exit_reached)
 	if (res.code == MAP_ERROR)
 	{
 		free(map.path);

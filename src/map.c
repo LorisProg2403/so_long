@@ -12,12 +12,12 @@
 
 #include "../inc/so_long.h"
 
-static t_map init_map(char *s)
+static t_map	init_map(char *s)
 {
-	t_map 	out;
+	t_map	out;
 	int		i;
-	int 	fd;
-	char 	*line;
+	int		fd;
+	char	*line;
 
 	out.path = ft_strjoin("maps/", s);
 	i = 0;
@@ -29,8 +29,8 @@ static t_map init_map(char *s)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
-		out.map[i] = ft_strtrim(line,"\n");
+			break ;
+		out.map[i] = ft_strtrim(line, "\n");
 		free(line);
 		i++;
 	}
@@ -40,9 +40,9 @@ static t_map init_map(char *s)
 
 static void	set_map(t_map *map)
 {
-	int i;
-	int j;
-	int items;
+	int	i;
+	int	j;
+	int	items;
 
 	i = 0;
 	items = 0;
@@ -68,7 +68,7 @@ static void	set_map(t_map *map)
 t_res	get_map(char *s, t_map *map)
 {
 	t_res	res;
-	
+
 	*map = init_map(s);
 	res = check_map(*map);
 	if (res.state)
@@ -80,6 +80,5 @@ t_res	get_map(char *s, t_map *map)
 	map->items_reached = false;
 	map->exit_reached = false;
 	res = is_winnable(*map);
-	
 	return (res);
 }

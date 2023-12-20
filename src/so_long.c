@@ -52,10 +52,10 @@ void	print_points(t_map map)
 
 int	main(int ac, char **av)
 {
-	t_map 	map;
+	t_map	map;
 	t_res	res;
 
-    if (ac != 2)
+	if (ac != 2)
 	{
 		ft_printf("Error\nMore than one argument!\n");
 		exit(1);

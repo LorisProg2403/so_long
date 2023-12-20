@@ -14,7 +14,7 @@
 
 static void	visit_point(int x, int y, int items, t_map *map)
 {
-	t_point point;
+	t_point	point;
 
 	if (x < 0 || y < 0 || x > (*map).width || y > (*map).height)
 		return ;
@@ -39,10 +39,10 @@ static void	visit_point(int x, int y, int items, t_map *map)
 
 t_res	is_winnable(t_map map)
 {
-	visit_point(map.spawn.x ,map.spawn.y, 0, &map);
+	visit_point(map.spawn.x, map.spawn.y, 0, &map);
 	if (!map.exit_reached)
-		return (make_res(1,2,"Can't reach the exit!\n",NULL));
+		return (make_res(1, 2, "Can't reach the exit!\n", NULL));
 	if (!map.items_reached)
-		return(make_res(1,2,"Can't reach the items!\n",NULL));
+		return (make_res(1, 2, "Can't reach the items!\n", NULL));
 	return (make_res(0, 0, NULL, NULL));
 }

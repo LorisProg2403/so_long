@@ -77,7 +77,7 @@ static bool	surrounded_by_wall(char **map)
 		i++;
 	if (i != w)
 		return (false);
-	i = 0;;
+	i = 0;
 	while (map[i] && map[i][0] == WALL && map[i][w - 1] == WALL)
 		i++;
 	if (i != h)

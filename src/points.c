@@ -14,8 +14,8 @@
 
 void	create_tab_pt(t_map *map, int y, int x)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	(*map).width = x - 1;
 	(*map).height = y - 1;
@@ -34,7 +34,7 @@ void	create_tab_pt(t_map *map, int y, int x)
 	}
 }
 
-t_point new_pt(int x, int y, char value)
+t_point	new_pt(int x, int y, char value)
 {
 	t_point	p;
 

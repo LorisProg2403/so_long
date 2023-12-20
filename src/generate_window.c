@@ -31,8 +31,9 @@ void	*create_img(t_vars *mlx, int x, int y, char *path)
 	{
 		corr_x = x * IMG_SIZE + img_height / 2;
 		corr_y = y * IMG_SIZE + img_width / 2;
-	} 
-	else {
+	}
+	else
+	{
 		corr_x = x * IMG_SIZE;
 		corr_y = y * IMG_SIZE;
 	}
@@ -90,7 +91,6 @@ void	generate_map(t_map *map)
 		j = 0;
 		while (j <= (*map).width)
 		{
-			//create_img(mlx, j, i, get_correct_map_image(map, j, i));
 			create_correct_image(&mlx, j, i, map);
 			j++;
 		}

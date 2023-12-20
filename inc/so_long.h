@@ -48,46 +48,46 @@ typedef struct s_vars
 
 typedef struct s_counter
 {
-	int 	exit;
-	int 	items;
-	int 	spawn;
+	int		exit;
+	int		items;
+	int		spawn;
 }	t_counter;
 
 typedef struct s_res
 {
 	bool	state;
-	int 	code;
+	int		code;
 	void	*data;
 	char	*msg;
 }	t_res;
 
 typedef struct s_point
 {
-    char	value;
-    int		x;
-    int		y;
-    bool	visited;
+	char	value;
+	int		x;
+	int		y;
+	bool	visited;
 }	t_point;
 
 typedef struct s_map
 {
-    char	**map;
+	char	**map;
 	char	*path;
-    int		height;
-    int		width;
-    int		items;
+	int		height;
+	int		width;
+	int		items;
 	bool	exit_reached;
 	bool	items_reached;
-	t_point spawn;
-	t_point exit;
-	t_point **points;
+	t_point	spawn;
+	t_point	exit;
+	t_point	**points;
 }	t_map;
 
 //Functions
 t_res	get_map(char *s, t_map *map);
-t_res 	check_map(t_map map);
+t_res	check_map(t_map map);
 
-t_point new_pt(int x, int y, char value);
+t_point	new_pt(int x, int y, char value);
 void	create_tab_pt(t_map *map, int y, int x);
 
 t_res	is_winnable(t_map map);
