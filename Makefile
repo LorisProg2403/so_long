@@ -6,7 +6,7 @@
 #    By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/27 13:17:03 by lgaume            #+#    #+#              #
-#    Updated: 2023/12/19 14:07:37 by lgaume           ###   ########.fr        #
+#    Updated: 2023/12/21 12:30:47 by lgaume           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC = inc/
 SRC_PATH = src/
 OBJ_PATH = obj/
 
-SRC = so_long pathfinding utils map checks handling_errors points generate_window
+SRC = so_long pathfinding utils map checks handling_errors points generate_window move
 SRCS 	= $(addprefix $(SRC_PATH), $(addsuffix .c, $(SRC)))
 OBJ 	= $(patsubst $(SRC_PATH)%.c,$(OBJ_PATH)%.o,$(SRCS))
 

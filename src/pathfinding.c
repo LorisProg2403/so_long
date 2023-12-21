@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:11:42 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 13:03:59 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/21 12:10:36 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	visit_point(int x, int y, int items, t_map *map)
 
 t_res	is_winnable(t_map map)
 {
-	visit_point(map.spawn.x, map.spawn.y, 0, &map);
+	visit_point(map.player.x, map.player.y, 0, &map);
 	if (!map.exit_reached)
 		return (make_res(1, 2, "Can't reach the exit!\n", NULL));
 	if (!map.items_reached)

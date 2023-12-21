@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 14:06:35 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/20 13:45:11 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/21 14:03:45 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,29 @@ void	*create_img(t_vars mlx, int x, int y, char *path)
 	return (img);
 }
 
-char	*get_correct_map_image(t_map *map, int x, int y)
+char	*get_correct_map_image(t_map *map, int x, int y, char c)
 {
 	t_point	*ptn;
 
+	if (c)
+	{
+		if (c == WALL)
+		return (WALL_IMG_PATH);
+	else if (c == PATH)
+		return (PATH_IMG_PATH);
+	else if (c == PLAYER)
+		return (PLAYER_IMG_PATH);
+	else if (c == EXIT)
+		return (EXIT_IMG_PATH);
+	else
+		return (ITEM_IMG_PATH);
+	}
 	ptn = &(*map).points[y][x];
 	if ((*ptn).value == WALL)
 		return (WALL_IMG_PATH);
 	else if ((*ptn).value == PATH)
 		return (PATH_IMG_PATH);
-	else if ((*ptn).value == SPAWN)
+	else if ((*ptn).value == PLAYER)
 		return (PLAYER_IMG_PATH);
 	else if ((*ptn).value == EXIT)
 		return (EXIT_IMG_PATH);
@@ -76,31 +89,16 @@ void	create_correct_image(t_vars mlx, int x, int y, t_map *map)
 	t_point	pts;
 
 	pts = (*map).points[y][x];
-	if (pts.value == SPAWN || pts.value == ITEM || pts.value == EXIT)
+	if (pts.value == PLAYER || pts.value == ITEM || pts.value == EXIT)
 	{
 		create_img(mlx, x, y, PATH_IMG_PATH);
-		pts.img.img = create_img(mlx, x, y, get_correct_map_image(map, x, y));
+		pts.img.img = create_img(mlx, x, y, get_correct_map_image(map, x, y, '\0'));
 		pts.has_image = true;
 		pts.img.mlx = mlx;
 	}
 	else
-		create_img(mlx, x, y, get_correct_map_image(map, x, y));
+		create_img(mlx, x, y, get_correct_map_image(map, x, y, '\0'));
 	(*map).points[y][x] = pts;
-}
-
-int	print_bind(int key, t_vars *mlx)
-{
-	if (key == KEY_Q || key == KEY_ESC)
-		exit(1);
-	if (key == KEY_W)
-		//move_up();
-	if (key == KEY_A)
-		//move_left();
-	if (key == KEY_S)
-		//move_down();
-	if (key == KEY_D)
-		//move_right();
-	return (0);
 }
 
 void	generate_map(t_map *map)
@@ -116,6 +114,7 @@ void	generate_map(t_map *map)
 			IMG_SIZE * ((*map).height + 1), "SO_LONG");
 	mlx.mlx = mlx_ini;
 	mlx.win = mlx_win;
+	mlx.map = map;
 	i = 0;
 	while (i <= (*map).height)
 	{
@@ -127,11 +126,6 @@ void	generate_map(t_map *map)
 		}
 		i++;
 	}
-	//set les binds via les touches du clavier
-	//config_binds(mlx);
-	mlx_key_hook(mlx.win, print_bind, &mlx);
+	mlx_key_hook(mlx.win, config_bind, &mlx);
 	mlx_loop(mlx_ini);
-	/*mlx_clear_window(mlx.mlx, mlx.win);
-	mlx_destroy_window(mlx.mlx, mlx.win);;
-	free(mlx_ini);*/
 }

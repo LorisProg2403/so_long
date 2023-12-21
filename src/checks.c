@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:00:46 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/19 12:03:37 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/21 15:18:33 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static bool	has_everything(t_map map)
 				c.items++;
 			else if (map.map[p.x][p.y] == EXIT)
 				c.exit++;
-			else if (map.map[p.x][p.y] == SPAWN)
+			else if (map.map[p.x][p.y] == PLAYER)
 				c.spawn++;
 			else if (map.map[p.x][p.y] != WALL && map.map[p.x][p.y] != PATH)
 				return (false);
@@ -89,12 +89,9 @@ t_res	check_map(t_map map)
 {
 	if (!has_everything(map))
 		return (make_res(1, 3, "Unplayble map!\n", NULL));
-	printf("everything => ok\n");
 	if (!map_is_rectangle(map.map))
 		return (make_res(1, 3, "Map should be a rectanlge!\n", NULL));
-	printf("rectangle => ok\n");
 	if (!surrounded_by_wall(map.map))
 		return (make_res(1, 3, "Map should be surrounded by wall!\n", NULL));
-	printf("surrounded => ok\n");
 	return (make_res(0, 0, NULL, NULL));
 }

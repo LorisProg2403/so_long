@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 12:17:48 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/20 12:15:01 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/21 15:18:20 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ static void	set_map(t_map *map)
 		{
 			if ((*map).map[i][j] == ITEM)
 				items++;
-			if ((*map).map[i][j] == SPAWN)
-				(*map).spawn = new_pt(j, i, 'P');
+			if ((*map).map[i][j] == PLAYER)
+				(*map).player = new_pt(j, i, 'P');
 			if ((*map).map[i][j] == EXIT)
 				(*map).exit = new_pt(j, i, 'E');
 			j++;
@@ -73,7 +73,6 @@ t_res	get_map(char *s, t_map *map)
 	res = check_map(*map);
 	if (res.state)
 		return (res);
-	printf("map => ok\n");
 	set_map(map);
 	if (res.state)
 		return (res);

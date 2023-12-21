@@ -6,7 +6,7 @@
 /*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 12:04:15 by bmabilla          #+#    #+#             */
-/*   Updated: 2023/12/19 14:08:48 by lgaume           ###   ########.fr       */
+/*   Updated: 2023/12/21 14:03:45 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_correct_map_image(t_map **map, int x, int y)
 		return ("./images/wall_50x50.xpm");
 	else if ((*ptn).value == PATH)
 		return ("./images/ground_50x50.xpm");
-	else if ((*ptn).value == SPAWN)
+	else if ((*ptn).value == PLAYER)
 		return ("./images/char.xpm");
 	else if ((*ptn).value == EXIT)
 		return ("./images/door_50x50.xpm");
@@ -63,7 +63,7 @@ void	create_correct_image(t_vars *mlx, int x, int y, t_map **map)
 	t_point	*ptn;
 
 	ptn = &(*map)->points[y][x];
-	if ((*ptn).value == SPAWN || (*ptn).value == ITEM)
+	if ((*ptn).value == PLAYER || (*ptn).value == ITEM)
 	{
 		create_img(mlx, x, y, "./images/ground_50x50.xpm");
 		create_img(mlx, x, y, get_correct_map_image(map, x, y));
