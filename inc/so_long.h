@@ -32,6 +32,7 @@
 # define EXIT_IMG_PATH "./img/crash/exit.xpm"
 # define ITEM_IMG_PATH "./img/crash/apple.xpm"
 # define PLAYER_IMG_PATH "./img/crash/player.xpm"
+# define BLACK_IMG_PATH "./img/crash/black.xpm"
 
 // Error code
 # define MALLOC_ERROR 1
@@ -123,8 +124,8 @@ void	exit_errors(t_res res, t_map map);
 
 void	generate_map(t_map *map);
 void	create_correct_image(t_vars mlx, int x, int y, t_map *map);
-char	*get_correct_map_image(t_map *map, int x, int y, char c);
-void	*create_img(t_vars mlx, int x, int y, char *path);
+char	*get_correct_map_image(t_map *map, int x, int y);
+void	create_img(t_vars mlx, int x, int y, char *path);
 
 //void	move_right(t_vars data);
 #endif

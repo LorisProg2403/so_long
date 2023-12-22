@@ -35,17 +35,20 @@ void	move(t_vars data, int add_x, int add_y)
 		return ;
 	data.map->moves++;
 	ft_printf("%d moves\n", data.map->moves);
+	//create_img(data, IMG_SIZE * (data.map->width / 2) + 50, IMG_SIZE * (data.map->height + 1),BLACK_IMG_PATH);
+	create_img(data, (data.map->width / 2) + 1, data.map->height + 1,BLACK_IMG_PATH);
+	mlx_string_put(data.mlx, data.win,
+	   IMG_SIZE * (data.map->width / 2) + 60,
+	   IMG_SIZE * (data.map->height + 2) - 25,255 ,
+		 ft_itoa(data.map->moves));
 	if (data.map->points[pos.y + add_y][pos.x + add_x].value == ITEM)
 	{
 		data.map->items--;
 		data.map->points[pos.y + add_y][pos.x + add_x].value = PATH;
-		create_img(data, pos.x + add_x, pos.y + add_y,
-			get_correct_map_image(data.map, pos.x + add_x, pos.y + add_y, PATH));
+		create_img(data, pos.x + add_x, pos.y + add_y,PATH_IMG_PATH);
 	}
-	create_img(data, pos.x, pos.y,
-		get_correct_map_image(data.map, pos.x, pos.y, PATH));
-	create_img(data, pos.x + add_x, pos.y + add_y,
-		get_correct_map_image(data.map, pos.x + add_x, pos.y + add_y, PLAYER));
+	create_img(data, pos.x, pos.y,PATH_IMG_PATH);
+	create_img(data, pos.x + add_x, pos.y + add_y,PLAYER_IMG_PATH);
 	data.map->player.x += add_x;
 	data.map->player.y += add_y;
 }

@@ -36,7 +36,7 @@ void	get_corr(t_point *c, t_point p, int width, int height)
 	}
 }
 
-void	*create_img(t_vars mlx, int x, int y, char *path)
+void	create_img(t_vars mlx, int x, int y, char *path)
 {
 	int		img_width;
 	int		img_height;
@@ -47,30 +47,17 @@ void	*create_img(t_vars mlx, int x, int y, char *path)
 	if (!img)
 	{
 		ft_printf("%s not found", path);
-		return (NULL);
+		return ;
 	}
 	get_corr(&corr, new_pt(x, y, '\0'), img_width, img_height);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img, corr.x, corr.y);
-	return (img);
+	//mlx_destroy_image(mlx.mlx, img);
 }
 
-char	*get_correct_map_image(t_map *map, int x, int y, char c)
+char	*get_correct_map_image(t_map *map, int x, int y)
 {
 	t_point	*ptn;
 
-	if (c)
-	{
-		if (c == WALL)
-		return (WALL_IMG_PATH);
-	else if (c == PATH)
-		return (PATH_IMG_PATH);
-	else if (c == PLAYER)
-		return (PLAYER_IMG_PATH);
-	else if (c == EXIT)
-		return (EXIT_IMG_PATH);
-	else
-		return (ITEM_IMG_PATH);
-	}
 	ptn = &(*map).points[y][x];
 	if ((*ptn).value == WALL)
 		return (WALL_IMG_PATH);
@@ -92,13 +79,14 @@ void	create_correct_image(t_vars mlx, int x, int y, t_map *map)
 	if (pts.value == PLAYER || pts.value == ITEM || pts.value == EXIT)
 	{
 		create_img(mlx, x, y, PATH_IMG_PATH);
-		pts.img.img = create_img(mlx, x, y, get_correct_map_image(map, x, y, '\0'));
+		create_img(mlx, x, y, get_correct_map_image(map, x, y));
 		pts.has_image = true;
 		pts.img.mlx = mlx;
 	}
 	else
-		create_img(mlx, x, y, get_correct_map_image(map, x, y, '\0'));
+		create_img(mlx, x, y, get_correct_map_image(map, x, y));
 	(*map).points[y][x] = pts;
+	create_img(mlx, IMG_SIZE * 5, IMG_SIZE * 2,BLACK_IMG_PATH);
 }
 
 void	generate_map(t_map *map)
@@ -111,7 +99,8 @@ void	generate_map(t_map *map)
 
 	mlx_ini = mlx_init();
 	mlx_win = mlx_new_window(mlx_ini, IMG_SIZE * ((*map).width + 1),
-			IMG_SIZE * ((*map).height + 1), "SO_LONG");
+			IMG_SIZE * ((*map).height + 2), "SO_LONG");
+	mlx_string_put(mlx_ini, mlx_win, IMG_SIZE * ((*map).width / 2), IMG_SIZE * ((*map).height + 2) - 25,255 ,"Moves :");
 	mlx.mlx = mlx_ini;
 	mlx.win = mlx_win;
 	mlx.map = map;
@@ -126,6 +115,9 @@ void	generate_map(t_map *map)
 		}
 		i++;
 	}
+	printf("i => %d\nj => %d\n", i, j);
+	printf("h => %d\nw => %d\n", map->height, map->width);
+	//create_img(mlx, 7, i,BLACK_IMG_PATH);
 	mlx_key_hook(mlx.win, config_bind, &mlx);
 	mlx_loop(mlx_ini);
 }
