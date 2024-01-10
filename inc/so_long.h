@@ -110,7 +110,7 @@ typedef struct s_map
 t_res	get_map(char *s, t_map *map);
 t_res	check_map(t_map map);
 
-int	config_bind(int key, t_vars *mlx);
+int		config_bind(int key, t_vars *mlx);
 
 t_point	new_pt(int x, int y, char value);
 void	create_tab_pt(t_map *map, int y, int x);
@@ -127,5 +127,4 @@ void	create_correct_image(t_vars mlx, int x, int y, t_map *map);
 char	*get_correct_map_image(t_map *map, int x, int y);
 void	create_img(t_vars mlx, int x, int y, char *path);
 
-//void	move_right(t_vars data);
 #endif

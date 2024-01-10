@@ -22,7 +22,7 @@ void	set_zero(int count, ...)
 	va_start(args, count);
 	while (i < count)
 	{
-		curr = va_arg(args, int *);
+		curr = va_arg(args, int*);
 		*curr = 0;
 		i++;
 	}

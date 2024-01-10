@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pathfinding.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lgaume <lgaume@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lgaume <lgaume@student.42lausanne.ch>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:11:42 by lgaume            #+#    #+#             */
-/*   Updated: 2023/12/21 12:10:36 by lgaume           ###   ########.fr       */
+/*   Updated: 2024/01/10 08:44:42 by lgaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,4 @@ t_res	is_winnable(t_map map)
 		return (make_res(1, 2, "Can't reach the items!\n", NULL));
 	return (make_res(0, 0, NULL, NULL));
 }
+

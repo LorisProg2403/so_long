@@ -51,7 +51,7 @@ void	create_img(t_vars mlx, int x, int y, char *path)
 	}
 	get_corr(&corr, new_pt(x, y, '\0'), img_width, img_height);
 	mlx_put_image_to_window(mlx.mlx, mlx.win, img, corr.x, corr.y);
-	//mlx_destroy_image(mlx.mlx, img);
+	mlx_destroy_image(mlx.mlx, img);
 }
 
 char	*get_correct_map_image(t_map *map, int x, int y)
@@ -117,7 +117,6 @@ void	generate_map(t_map *map)
 	}
 	printf("i => %d\nj => %d\n", i, j);
 	printf("h => %d\nw => %d\n", map->height, map->width);
-	//create_img(mlx, 7, i,BLACK_IMG_PATH);
 	mlx_key_hook(mlx.win, config_bind, &mlx);
 	mlx_loop(mlx_ini);
 }

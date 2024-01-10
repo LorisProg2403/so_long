@@ -28,7 +28,6 @@ void	free_all(t_map map)
 	free(map.map);
 }
 
-
 int	main(int ac, char **av)
 {
 	t_map	map;
@@ -41,8 +40,16 @@ int	main(int ac, char **av)
 	}
 	res = get_map(av[1], &map);
 	if (res.state)
+	{
 		exit_errors(res, map);
+		return (1);
+	}
 	generate_map(&map);
-	//free_all(map);
-	exit (0);
+	if (res.state)
+	{
+		exit_errors(res, map);
+		return (1);
+	}
+	free_all(map);
+	exit(0);
 }

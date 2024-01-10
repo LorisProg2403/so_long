@@ -29,6 +29,7 @@ int	has_access(t_vars data, t_point pos, int add_x, int add_y)
 void	move(t_vars data, int add_x, int add_y)
 {
 	t_point pos;
+	char 	*moves;
 	
 	pos = data.map->player;
 	if (!has_access(data,pos, add_x, add_y))
@@ -37,10 +38,11 @@ void	move(t_vars data, int add_x, int add_y)
 	ft_printf("%d moves\n", data.map->moves);
 	//create_img(data, IMG_SIZE * (data.map->width / 2) + 50, IMG_SIZE * (data.map->height + 1),BLACK_IMG_PATH);
 	create_img(data, (data.map->width / 2) + 1, data.map->height + 1,BLACK_IMG_PATH);
+	moves = ft_itoa(data.map->moves);
 	mlx_string_put(data.mlx, data.win,
 	   IMG_SIZE * (data.map->width / 2) + 60,
-	   IMG_SIZE * (data.map->height + 2) - 25,255 ,
-		 ft_itoa(data.map->moves));
+	   IMG_SIZE * (data.map->height + 2) - 25,255, moves);
+	free(moves);
 	if (data.map->points[pos.y + add_y][pos.x + add_x].value == ITEM)
 	{
 		data.map->items--;
